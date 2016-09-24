@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片切换</title>
+		
+		<style>
+		div{
+			margin-top:10px;
+			width:521px;
+			height:294px;
+			/*overflow:hidden;*/
+		}
+		</style>
+		
+	</head>
+	
+	<body>
+		
+		<button id="btn1">上一张</button>
+		<button id="btn2">下一张</button>
+		<input id="txt1" type="text" value="" />
+	
+		<div id="div1">
+			<img id= "img1" src=""/>
+			<!--<img src="images/2.jpg"/>
+			<img src="images/3.jpg"/>
+			<img src="images/4.jpg"/>
+			<img src="images/5.jpg"/>
+			<img src="images/6.jpg"/>
+			<img src="images/7.jpg"/>
+			<img src="images/8.jpg"/>-->
+		</div>
+	
+	<script>
+	
+	var $ = function( id ){
+		return document.getElementById( id );
+	}
+	
+	var arrSrc = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg","images/8.jpg" ];
+	
+	var oBtn1 = $( "btn1" );
+	var oBtn2 = $( "btn2" );
+	var oTxt1 = $( "txt1" );
+	var oDiv1 = $( "div1" );
+	var oImg1 = $( "img1" );
+	//alert( oImg[0].nodeName );
+	
+//方法1	
+	var count = 0;
+	oBtn1.onclick = function(){
+		count--;
+		if( count<0 ){
+			count = arrSrc.length-1;
+		}
+		 oImg1.setAttribute( "src",arrSrc[count] );
+		oTxt1.value = count;
+	}
+	
+	oBtn2.onclick = function(){
+		count++;
+		if( count>arrSrc.length-1 ){
+			count = 0;
+		}
+		 oImg1.setAttribute( "src",arrSrc[count] );
+		oTxt1.value = count;
+	}
+	
+	
+	</script>
+	
+	</body>
+</html>
