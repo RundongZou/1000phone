@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基础过滤</title>
+		<script src="jQ/jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		
+	<table border="1">
+  	<tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+  	<tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+  	<tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+  	<tr><td>TD #9</td><td>TD #10</td><td>TD #11</td></tr>
+	</table>
+	
+	<script>
+		$("td:eq(2)").css("color","red");
+		$("td").eq(4).css("font-size","30px");
+		//偶数行
+		$("tr:even").css("background-color","#bbbbff");
+//因为 :first() 是一个 jQuery 延伸出来的一个选择器。 并且不是的CSS规范的一部分, 使用:first()查询不能充分利用原生DOM提供的querySelectorAll() 方法来提高性能。为了在现代浏览器上获得更佳的性能，请使用.filter(":first")代替。
+		//$("td:first").css("background-color","pink");
+		$("td").filter(":first").css("background-color","pink");
+		//$("td:first-child").css("background-color","pink");
+		
+//描述: 选择匹配集合中所有大于给定index（索引值）的元素。
+//-index: 从0开始计数的索引值。 从最后一个元素开始反向计数
+//因为 :gt() 是一个 jQuery 延伸出来的选择器 。 并且不是的CSS规范的一部分, 使用:gt()查询不能充分利用原生DOM提供的querySelectorAll() 方法来提高性能。为了在现代浏览器上获得更佳的性能，请使用$("your-pure-css-selector").slice(index)代替。
+		$( "td:gt(4)" ).css( "backgroundColor", "yellow" );
+		$( "td:gt(-2)" ).css( "color", "red" );
+//描述: 选择匹配集合中所有索引值小于给定index参数的元素。
+//因为 :lt() 是一个 jQuery 延伸出来的一个选择器 ， 并且不是的CSS规范的一部分, 使用:lt()查询不能充分利用原生DOM提供的querySelectorAll() 方法来提高性能。为了在现代浏览器上获得更佳的性能，请使用$("your-pure-css-selector").slice(0, index)代替。
+		$("td:lt(5)").html("前五个");
+		//$("td:lt(-3)").html("想知道吗？");
+	</script>
+	
+	</body>
+</html>

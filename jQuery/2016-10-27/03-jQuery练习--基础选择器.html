@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基础选择器</title>
+		<script src="jQ/jquery-3.1.1.js"></script>
+		<style type="text/css">
+			p{
+				width:100px;
+				height:50px;
+				background:cornflowerblue;
+				padding:10px;
+			}
+			span{
+				display:block;
+				width:50px;
+				height:50px;
+				background-color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="p1">
+			<span class="p2">		
+			</span>
+		</p>
+		<p id="p3"></p>
+		<script>
+			$("*").css("border"," 3px dotted red");
+			$("#p3").html("p3").css("background-color","yellow");
+			//$("p").html("p标签");
+			$(".p2,#p3").html("special").css("background-color","mediumpurple");
+		</script>
+	</body>
+</html>

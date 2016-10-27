@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>子元素过滤</title>
+		<script type="text/javascript" src="jQ/jquery-3.1.1.js" ></script>
+		<style>
+			span{
+				color:#008;
+			}
+			span.sogreen{
+				color:green;
+				font-weight:bolder;
+			}
+			span.sored{
+				color:red;
+				font-style:italic;
+			}
+			span.fot{
+				color:pink;
+				font-size:120%;
+				font-style:italic;
+			}
+			span.solast { 
+				text-decoration:line-through;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<span>John,</span>
+			<span>Karl,</span>
+			<span>Brandon</span>
+
+		</div>
+		<div>
+			<span>Glen,</span>	
+			<span>Tane,</span>
+			<span>Ralph</span>
+
+		</div>
+			<span>Glen,</span>	
+			<span>Tane,</span>
+			<span>Ralph</span>
+		<script>
+			$("div span:first-child")
+				.css("text-decoration","underline")
+				.hover(function(){
+					$(this).addClass("sogreen");
+				},function(){
+					$(this).removeClass("sogreen");
+				})
+				
+			$("div span:last-child")
+				.css("text-decoration","underline")
+				.hover(function(){
+					$(this).addClass("sored");
+				},function(){
+					$(this).removeClass("sored");
+				})
+				
+			$("span:first-of-type").addClass("fot");
+			
+			$("span:last-of-type")
+    			.css({color:"red", fontSize:"80%"})
+    			.hover(function () {
+          			$(this).addClass("solast");
+        		}, function () {
+          			$(this).removeClass("solast");
+        		});
+		</script>
+	</body>
+
+</html>

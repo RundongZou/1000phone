@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery练习1--属性选择器</title>
+		<script src="jQ/jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div id="div"></div>
+		<a href="#" hreflang="en">test1</a>
+		<a href="#" hreflang="en-Uk">test2</a>
+		<a href="#" hreflang="english">test3</a>
+		<hr/>
+		<input type="text" name="man" />
+		<input type="text" name="male" />
+		<input type="text" name="man-made"/>
+		<input type="text" name="a man"/>
+		<hr/>
+		<input type="text" name="coun" />
+		<input type="text" name="country" />
+		<input type="text" name="count"/>
+		<input type="text" name="coun t"/>
+		<hr/>
+		<input type="text" name="newLetter" />
+		<input type="text" name="milk" />
+		<input type="text" name="jobletter"/>
+		<hr/>
+		<input type="text" name="newsLet" />
+		<input type="text" name="mnews" />
+		<input type="text" name="Newsboy"/>
+		<hr/>
+		<input type="text" id="input1" name="aa" />
+		<input type="text" id="input2" name="ab" />
+		<input type="text" id="input3" name="ba"/>
+		
+		<script>
+//Attribute Contains Prefix Selector [name|="value"]
+//选择指定属性值等于给定字符串或以该字符串为前缀（该字符串后跟一个连字符“-” ）的元素。
+		$("a[hreflang|='en']").css("border","2px solid red");
+//Attribute Contains Selector [name*="value"]
+//选择指定属性具有包含一个给定的子字符串的元素。（选择给定的属性是以包含某些值的元素）
+		$("input[name*='man']").val("including 'man'");
+//Attribute Contains Word Selector [name~="value"]
+//选择指定属性用空格分隔的值中包含一个给定值的元素。
+		$("input[name~='coun']").val("coun is in it!");
+//Attribute Ends With Selector [name$="value"]
+//选择指定属性是以给定值结尾的元素。这个比较是区分大小写的。
+		$("input[name$='letter']").val("a letter");
+//Attribute Starts With Selector [name^="value"]
+//选择指定属性是以给定字符串开始的元素
+		$("input[name^='news']").val("start with 'news'");
+//描述: 选择匹配所有指定的属性筛选器的元素
+//添加的版本: 1.0jQuery( "[attributeFilter1][attributeFilter2][attributeFilterN]" )
+		$("input[id][name$='a'][name^='b']").val("bla");
+		
+
+
+		
+
+		</script>
+	</body>
+</html>

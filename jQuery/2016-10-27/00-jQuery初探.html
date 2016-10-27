@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery初探</title>
+		<script src="jQ/jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div id="div"></div>
+		<script>
+			var oDiv = document.getElementById("div");
+//DOM对象
+//			oDiv.innerHTML = "hello";
+
+//jQuery对象
+//			$("div").html("jQuery");
+
+//将jQuery对象转换成DOM对象
+//			$("div")[0].innerHTML = "hello jQ";
+
+//将DOM对象转换成jQuery对象
+			$(oDiv).html("hello jQuery");
+		</script>
+	</body>
+</html>
