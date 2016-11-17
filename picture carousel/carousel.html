@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>picture carusel</title>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+
+    <style>
+        #main{
+            position: relative;
+            margin:50px auto;
+            width:512px;
+            height:294px;
+            border:1px solid lightpink;
+        }
+
+        #main img{
+            float: left;
+            position: absolute;
+        }
+        .z1{
+            z-index: 1;
+        }
+        .z0{
+            z-index: 0;
+        }
+        button{
+            width:20px;
+            height:40px;
+            position: absolute;
+            z-index: 20;
+            text-align: center;
+        }
+        #btnLeft{
+            left:-40px;
+            top:120px;
+        }
+        #btnRight{
+            right:-40px;
+            top:120px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img style="z-index: 10;" src="images/1.jpg" alt="" />
+        <img style="z-index: 9;" src="images/2.jpg" alt="" />
+        <img style="z-index: 8;" src="images/3.jpg" alt="" />
+        <img style="z-index: 7;" src="images/4.jpg" alt="" />
+        <img style="z-index: 6;" src="images/5.jpg" alt="" />
+        <button id="btnLeft">←</button>
+        <button id="btnRight">→</button>
+    </div>
+
+
+    <script>
+        var index = 0;
+        var timer;
+        var pause=false;
+        //设置定时器
+        timer = setInterval(function(){
+            //如果不暂停
+            if(!pause){
+                console.log(index);
+                $("img").eq(index).fadeOut();
+                if(index == 4){
+                    index = -1;
+                }
+                $("img").eq(index+1).fadeIn();
+                index++;
+            }
+
+
+        },1500)
+
+        //这个好像有点问题，明早再来看
+        $("#btnLeft").click(function(){
+            pause=true;
+            $("img").eq(index).fadeOut();
+            if(index == 4){
+                index = -1;
+            }
+            $("img").eq(index+1).fadeIn();
+            index++;
+        })
+
+    </script>
+
+</body>
+</html>
